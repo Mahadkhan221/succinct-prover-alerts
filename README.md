@@ -38,48 +38,28 @@ git clone https://github.com/Mahadkhan221/succinct-prover-alerts.git
 cd succinct-prover-alerts
 Configure environment variables
 
----
-
-## 2️⃣ Configure environment variables
-
-Copy the example environment file and edit it:
-
-```bash
+### 2️⃣ Configure environment variables
+Copy the example environment file:
 cp .env.example .env
-Set the required values in .env:
 
-env
+Edit .env:
 PROVER_ADDRESS=0xYourProverAddress
 DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/...
-Optional configuration:
-
-env
 POLL_INTERVAL=60
 HEARTBEAT_INTERVAL=3600
 SEND_STARTUP_MESSAGE=true
 LOG_LEVEL=INFO
 
----
-
-3️⃣ Run the service
-Build and start the service:
-
-```bash
+### 3️⃣ Build and run the service
 docker compose up -d --build
-
 You should immediately receive a startup alert in Discord.
 
-4️⃣ View logs
-```bash
+### 4️⃣ View logs
 docker compose logs -f --tail=200
 
-5️⃣ Stop or restart the service
-Stop the service:
-
-```bash
+### 5️⃣ Stop or restart the service
 docker compose down
-
-Restart the service:
-
-```bash
 docker compose restart
+
+
+
