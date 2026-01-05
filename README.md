@@ -29,6 +29,7 @@ If no assigned order exists, it automatically falls back to the **latest fulfill
 
 ---
 
+```md
 ## 🚀 Quick Start
 
 ### 1️⃣ Clone the repository
@@ -36,7 +37,6 @@ If no assigned order exists, it automatically falls back to the **latest fulfill
 ```bash
 git clone https://github.com/Mahadkhan221/succinct-prover-alerts.git
 cd succinct-prover-alerts
-Configure environment variables
 
 ### 2️⃣ Configure environment variables
 Copy the example environment file:
