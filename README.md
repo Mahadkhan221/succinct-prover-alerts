@@ -38,6 +38,8 @@ git clone https://github.com/Mahadkhan221/succinct-prover-alerts.git
 cd succinct-prover-alerts
 Configure environment variables
 
+---
+
 ## 2️⃣ Configure environment variables
 
 Copy the example environment file and edit it:
@@ -47,17 +49,18 @@ cp .env.example .env
 Set the required values in .env:
 
 env
-Copy code
 PROVER_ADDRESS=0xYourProverAddress
 DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/...
 Optional configuration:
 
 env
-Copy code
 POLL_INTERVAL=60
 HEARTBEAT_INTERVAL=3600
 SEND_STARTUP_MESSAGE=true
 LOG_LEVEL=INFO
+
+---
+
 3️⃣ Run the service
 Build and start the service:
 
