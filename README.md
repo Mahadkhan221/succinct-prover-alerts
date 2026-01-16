@@ -1,32 +1,42 @@
 # Succinct Prover Alerts
 
-A production-ready, containerized Python application that monitors the **Succinct Network gRPC API** for prover order activity and sends **on-call style alerts to Discord**.
+A production-ready, containerized **one-shot Python CLI** that checks prover order activity on the Succinct Network using the official gRPC API and sends on-call style alerts to Discord.
 
-This service continuously checks which order is **assigned** to a prover.  
-If no assigned order exists, it automatically falls back to the **latest fulfilled order**.
+This tool is designed to replace manual on-call checks of the Succinct Explorer with a simple, repeatable command that can be run on demand or scheduled externally (e.g. via systemd or cron).
 
 ---
 
 ## 🔍 What This Does
 
-- Connects to the Succinct gRPC endpoint: `https://rpc.mainnet.succinct.xyz`
-- Fetches the **latest ASSIGNED order** for a prover
-- Falls back to the **latest FULFILLED order** if no assignment exists
-- Sends alerts to Discord when:
-  - A new order is assigned
-  - A new order is fulfilled
-  - An existing order is updated
-- Sends an **hourly heartbeat** message for on-call style monitoring
-- Formats timestamps in **Pakistan Time (PKT)** and shows **time since last update**
-- Runs fully via **Docker Compose**
+- Connects to the Succinct gRPC endpoint  
+  `https://rpc.mainnet.succinct.xyz`
+- Fetches the latest **ASSIGNED** order for a prover
+- Falls back to the latest **FULFILLED** order if no assignment exists
+- Sends a **single Discord alert** per run containing:
+  - Order status (ASSIGNED / FULFILLED)
+  - Time since last update
+  - Clickable links to:
+    - Order on Succinct Explorer
+    - Prover on Succinct Explorer
+- Uses **Discord embeds** to support Markdown-style links
+- Exits immediately after sending the alert (no background polling)
+
+---
+
+## 🧠 Design Philosophy
+
+- **One-shot CLI**, not a long-running service
+- Easy to reason about, restart, and schedule
+- No secrets committed to source control
+- Configuration via environment variables
+- Built directly on Succinct’s official `network.proto` and `types.proto`
 
 ---
 
 ## ✅ Requirements
 
 - Docker
-- Docker Compose (v2)
-
+- Docker (Compose optional, not required)
 ---
 
 ```md
