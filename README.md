@@ -55,10 +55,6 @@ cp .env.example .env
 Edit .env:
 PROVER_ADDRESS=0xYourProverAddress
 DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/...
-POLL_INTERVAL=60
-HEARTBEAT_INTERVAL=3600
-SEND_STARTUP_MESSAGE=true
-LOG_LEVEL=INFO
 
 ### 3️⃣ Build and run the service
 docker compose up -d --build
